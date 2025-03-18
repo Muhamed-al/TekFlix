@@ -2,9 +2,9 @@
   <div class="text-center">
     <h1 class="text-white" appColor>Our Movies</h1>
     <div class="d-flex justify-content-center mt-4">
-      <nav class="nav nav-pills" *ngFor="let category of categories">
-        <a class="nav-link btn rounded-pill bg-white text-dark border mx-2 px-4 py-2"
-          (click)="selectCategory(category)">{{category}}</a>
+      <nav class="nav nav-pills" *ngFor="let cat of categories">
+        <a class="nav-link rounded-pill bg-white text-dark border mx-2 px-4 py-2"
+        (click) = "selectCategory(cat)">{{ cat }}</a>
       </nav>
     </div>
     <div id="movieCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -13,11 +13,14 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="row mx-auto" style="max-width: 1200px;">
-            <div class="col-sm-6 col-md-3" *ngFor="let film of filteredFilms">
+            <div class="col-sm-6 col-md-3" *ngFor="let film of filteredFilm">
               <app-single-movie [film]="film" [routerLink]="['/movie-details' , film.id]"></app-single-movie>
             </div>
           </div>
         </div>
+      </div>
+      <div *ngIf="filteredFilm.length == 0" style="color: red; font-size: 100px;">
+        No film in this category 
       </div>
     </div>
   </div>

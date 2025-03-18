@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Film, FILMS } from '../models/film';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { FilmService } from '../services/film.service';
 
 
 @Component({
@@ -12,18 +13,22 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class MovieDetailsComponent {
   filmId?: any;
-  films: Film[] = FILMS;
+  films?: Film[];
   film?: Film;
   safeTrailerUrl!: SafeResourceUrl;
   showModal = false;
 
-  constructor(private route: ActivatedRoute, private sanitizer: DomSanitizer) {}
+  constructor(private route: ActivatedRoute, 
+              private sanitizer: DomSanitizer,
+              private filmService : FilmService) {}
+
 
   ngOnInit() {
     console.log("INSIDE ngOnInit");
+    this.films = this.filmService.getAllFilms();
     this.filmId = this.route.snapshot.paramMap.get('id');
     console.log("FILM ID:", this.filmId);
-    this.film = this.films.find(f => f.id === parseInt(this.filmId));
+    this.film = this.filmService.getFilmById(parseInt(this.filmId))
     console.log("Film:", this.film);
   }
 

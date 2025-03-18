@@ -13,6 +13,7 @@ import { AboutComponent } from './about/about.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { ColorDirective } from './directives/color.directive';
 import { ContactComponent } from './contact/contact.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ContactComponent } from './contact/contact.component';
     AboutComponent,
     MovieDetailsComponent,
     ColorDirective,
-    ContactComponent
+    ContactComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,24 @@
+<div>
+    <div class="container" style="margin-top: 80px;">
+        <h2 class="text-center text-white mb-5">Wishlist</h2>
+        <div class="row">
+            <div class="col-md-4" *ngFor="let film of wishlist">
+                <div class="card bg-dark text-white shadow-lg">
+                    <img [src]="film.image" class="card-img-top" alt="Film">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ film.title }}</h5>
+                        <p class="card-text">{{ film.description | slice:0:100 }}...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <button class="btn btn-danger" (click)="removeFromWishlist(film.id)">
+                                <i class="fas fa-trash"></i> Retirer
+                            </button>
+                            <a [routerLink]="['/movie-details', film.id]" class="btn btn-outline-light">
+                                <i class="fas fa-info-circle"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

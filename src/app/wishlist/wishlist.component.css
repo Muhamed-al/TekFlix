@@ -1,0 +1,31 @@
+body {
+    background-color: #121212;
+}
+*{
+    background-color: black;
+}
+
+.card {
+    width: 90%;
+    max-width: 280px; 
+    margin: auto; 
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    height: 250px; 
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* Ajustement de l'espacement entre les cartes */
+.col-md-4 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
